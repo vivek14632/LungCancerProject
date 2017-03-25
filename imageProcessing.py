@@ -14,7 +14,7 @@ patients = os.listdir(INPUT_FOLDER)
 patients.sort()
 
 def load_scan(path):
-    slices = [dicom.read_file(path + '/' + s) for s in os.listdir(path)]
+    slices = [dicom.read_file(path + '/' + ss) for ss in os.listdir(path)]
     slices.sort(key = lambda x: float(x.ImagePositionPatient[2]))
     try:
         slice_thickness = np.abs(slices[0].ImagePositionPatient[2] - slices[1].ImagePositionPatient[2])
