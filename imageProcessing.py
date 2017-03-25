@@ -18,8 +18,10 @@ def load_scan(path):
     slices.sort(key = lambda x: float(x.ImagePositionPatient[2]))
     try:
         slice_thickness = np.abs(slices[0].ImagePositionPatient[2] - slices[1].ImagePositionPatient[2])
+         print(slice_thickness)
     except:
         slice_thickness = np.abs(slices[0].SliceLocation - slices[1].SliceLocation)
+         print(slice_thickness)
         
     for s in slices:
         s.SliceThickness = slice_thickness
@@ -51,12 +53,12 @@ def get_pixels_hu(slices):
     return np.array(image, dtype=np.int16)
 
 first_patient = load_scan(INPUT_FOLDER + patients[0])
-first_patient_pixels = get_pixels_hu(first_patient)
-plt.hist(first_patient_pixels.flatten(), bins=80, color='c')
-plt.xlabel("Hounsfield Units (HU)")
-plt.ylabel("Frequency")
-plt.show()
+#first_patient_pixels = get_pixels_hu(first_patient)
+#plt.hist(first_patient_pixels.flatten(), bins=80, color='c')
+#plt.xlabel("Hounsfield Units (HU)")
+#plt.ylabel("Frequency")
+#plt.show()
 
 # Show some slice in the middle
-plt.imshow(first_patient_pixels[80], cmap=plt.cm.gray)
-plt.show()
+#plt.imshow(first_patient_pixels[80], cmap=plt.cm.gray)
+#plt.show()
