@@ -13,7 +13,7 @@ from skimage import measure, morphology
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 # Some constants 
-INPUT_FOLDER = '/home/v/vivek4/cancerData/sampleImages/'
+INPUT_FOLDER = '/home/ravi/sample_images'
 patients = os.listdir(INPUT_FOLDER)
 patients.sort()
 
