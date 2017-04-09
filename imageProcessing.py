@@ -58,6 +58,7 @@ def get_pixels_hu(slices):
 
 first_patient = load_scan(INPUT_FOLDER + patients[0])
 first_patient_pixels = get_pixels_hu(first_patient)
+ndarray.tofile('/home/ravi/sample_images',str)
 plt.hist(first_patient_pixels.flatten(), bins=80, color='c')
 plt.xlabel("Hounsfield Units (HU)")
 plt.ylabel("Frequency")
