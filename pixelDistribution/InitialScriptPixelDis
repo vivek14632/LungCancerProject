@@ -16,4 +16,12 @@ xout <- transform(xout, cumFreq = cumsum(Freq), relative = prop.table(Freq))
 xout
 
 
+#this one gives a complete distribution of each pixel value, unlike the above code which gives distribution for a range.
+
+tbl <- table(matR)
+
+cbind( Freq=tbl, Cumul=cumsum(tbl), relative=prop.table(tbl))
+
+
+
 #This is only a initial script , refining it soon.
