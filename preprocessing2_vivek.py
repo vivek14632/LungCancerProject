@@ -80,6 +80,7 @@ ct_scan = read_ct_scan('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb
 len(ct_scan) # total number of slices in a dicom image
 
 def plot_ct_scan(scan):
+	#scan.shape[0] is 134, i.e. number of slices for the patient
     f, plots = plt.subplots(int(scan.shape[0] / 20) + 1, 4, figsize=(25, 25))
     for i in range(0, scan.shape[0], 5):
         plots[int(i / 20), int((i % 20) / 5)].axis('off')
