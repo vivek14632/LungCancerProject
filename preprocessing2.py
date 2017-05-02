@@ -1,3 +1,5 @@
+#It's in full working code verified
+# check for all doubts here https://www.kaggle.com/arnavkj95/data-science-bowl-2017/candidate-generation-and-luna16-preprocessing/notebook
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import skimage, os
@@ -169,7 +171,7 @@ label_scan = label(binary)
 areas = [r.area for r in regionprops(label_scan)]
 areas.sort()
 
-for r in regionprops(label_scan):
+for r in regionprops(label_scan): # not sure if we should do this. I got everything black after I did this transformation
     max_x, max_y, max_z = 0, 0, 0
     min_x, min_y, min_z = 1000, 1000, 1000
     
