@@ -23,8 +23,10 @@ matplotlib.use('qt4agg')
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
-from subprocess import check_output
-print(check_output(["ls", "/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images"]).decode("utf8"))
+# vivek: The following code is specific to linux (ls command is used)
+# So i am commenting the code
+#from subprocess import check_output
+#print(check_output(["ls", "/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images"]).decode("utf8"))
 
 
 
@@ -33,7 +35,28 @@ print(check_output(["ls", "/media/nargis/Seagate Backup Plus Drive/Lung Cancer/s
 # Any results you write to the current directory are saved as output.
 lung = dicom.read_file('/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images/00cba091fa4ad62cc3200a657aeb957e/38c4ff5d36b5a6b6dc025435d62a143d.dcm')
 
+# vivek: Following code is applicable to my system only
+lung = dicom.read_file('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb957e/0a291d1b12b86213d813e3796f14b329.dcm')
+
 slice = lung.pixel_array
+
+# lung is an object in python. to get all the 
+# available methods and variables in that object, use dir() function
+#>>> dir(lung)
+#['AcquisitionNumber', 'BitsAllocated', 'BitsStored', 'Columns', 'FrameOfReferenceUID', 'HighBit', 'ImageOrientationPatient', 'ImagePositionP
+#atient', 'InstanceNumber', 'KVP', 'Modality', 'PatientBirthDate', 'PatientID', 'PatientName', 'PatientOrientation', 'PhotometricInterpretati
+#on', 'PixelData', 'PixelPaddingValue', 'PixelRepresentation', 'PixelSpacing', 'PositionReferenceIndicator', 'RescaleIntercept', 'RescaleSlop
+#e', 'Rows', 'SOPClassUID', 'SOPInstanceUID', 'SamplesPerPixel', 'SeriesDescription', 'SeriesInstanceUID', 'SeriesNumber', 'SliceLocation', '
+#SpecificCharacterSet', 'StudyInstanceUID', 'WindowCenter', 'WindowWidth', '__contains__', '__delattr__', '__delitem__', '__dir__', '__eq__',
+# '__format__', '__ge__', '__getattr__', '__getattribute__', '__getitem__', '__gt__', '__init__', '__init_subclass__', '__iter__', '__le__',
+#'__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__',
+#'__subclasshook__', '__weakref__', '_character_set', '_get_pixel_array', '_pixel_data_numpy', '_pretty_str', 'add', 'add_new', 'clear', 'cop
+#y', 'data_element', 'decode', 'dir', 'formatted_lines', 'fromkeys', 'get', 'get_item', 'group_dataset', 'items', 'iterall', 'keys', 'pixel_a
+#rray', 'pop', 'popitem', 'remove_private_tags', 'save_as', 'setdefault', 'top', 'trait_names', 'update', 'values', 'walk']
+#>>>
+
+
+
 slice[slice == -2000] = 0
 plt.imshow(slice, cmap=plt.cm.gray)
 plt.show()
