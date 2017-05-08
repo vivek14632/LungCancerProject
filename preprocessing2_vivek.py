@@ -17,8 +17,8 @@ import dicom
 import scipy.misc
 import numpy as np
 import matplotlib
-import PyQt5
-matplotlib.use('qt4agg')
+#import PyQt5
+#matplotlib.use('qt4agg')
 
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
