@@ -17,56 +17,6 @@ import dicom
 import scipy.misc
 import numpy as np
 import matplotlib
-#import PyQt5
-#matplotlib.use('qt4agg')
-
-# Input data files are available in the "../input/" directory.
-# For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
-
-# vivek: The following code is specific to linux (ls command is used)
-# So i am commenting the code
-#from subprocess import check_output
-#print(check_output(["ls", "/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images"]).decode("utf8"))
-
-
-
-#print(check_output(["ls", "../input/sample_images/"]).decode("utf8"))
-
-# Any results you write to the current directory are saved as output.
-#lung = dicom.read_file('/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images/00cba091fa4ad62cc3200a657aeb957e/38c4ff5d36b5a6b6dc025435d62a143d.dcm')
-
-# vivek: Following code is applicable to my system only
-lung = dicom.read_file('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb957e/0a291d1b12b86213d813e3796f14b329.dcm')
-
-slice = lung.pixel_array
-
-#Finding unique pixels
-unique=np.unique(lung.pixel_array)
-#>>> unique
-#array([-2000,     0,     1, ...,  2342,  2376,  2412], dtype=int16)
-len(unique)
-#1705
-
-# lung is an object in python. to get all the 
-# available methods and variables in that object, use dir() function
-#>>> dir(lung)
-#['AcquisitionNumber', 'BitsAllocated', 'BitsStored', 'Columns', 'FrameOfReferenceUID', 'HighBit', 'ImageOrientationPatient', 'ImagePositionP
-#atient', 'InstanceNumber', 'KVP', 'Modality', 'PatientBirthDate', 'PatientID', 'PatientName', 'PatientOrientation', 'PhotometricInterpretati
-#on', 'PixelData', 'PixelPaddingValue', 'PixelRepresentation', 'PixelSpacing', 'PositionReferenceIndicator', 'RescaleIntercept', 'RescaleSlop
-#e', 'Rows', 'SOPClassUID', 'SOPInstanceUID', 'SamplesPerPixel', 'SeriesDescription', 'SeriesInstanceUID', 'SeriesNumber', 'SliceLocation', '
-#SpecificCharacterSet', 'StudyInstanceUID', 'WindowCenter', 'WindowWidth', '__contains__', '__delattr__', '__delitem__', '__dir__', '__eq__',
-# '__format__', '__ge__', '__getattr__', '__getattribute__', '__getitem__', '__gt__', '__init__', '__init_subclass__', '__iter__', '__le__',
-#'__len__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setitem__', '__sizeof__', '__str__',
-#'__subclasshook__', '__weakref__', '_character_set', '_get_pixel_array', '_pixel_data_numpy', '_pretty_str', 'add', 'add_new', 'clear', 'cop
-#y', 'data_element', 'decode', 'dir', 'formatted_lines', 'fromkeys', 'get', 'get_item', 'group_dataset', 'items', 'iterall', 'keys', 'pixel_a
-#rray', 'pop', 'popitem', 'remove_private_tags', 'save_as', 'setdefault', 'top', 'trait_names', 'update', 'values', 'walk']
-#>>>
-
-
-
-slice[slice == -2000] = 0
-#plt.imshow(slice, cmap=plt.cm.gray)
-#plt.show()
 
 def read_ct_scan(folder_name):
         # Read the slices from the dicom file
@@ -79,23 +29,6 @@ def read_ct_scan(folder_name):
         slices = np.stack([s.pixel_array for s in slices])
         slices[slices == -2000] = 0
         return slices
-
-#ct_scan = read_ct_scan('/media/nargis/Seagate Backup Plus Drive/Lung Cancer/sample_images/00cba091fa4ad62cc3200a657aeb957e/') # array of pixel_array
-# vivek: following code is specific to my laptop
-ct_scan = read_ct_scan('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb957e/') # array of pixel_array
-
-len(ct_scan) # total number of slices in a dicom image
-
-def plot_ct_scan(scan):
-	#scan.shape[0] is 134, i.e. number of slices for the patient
-    f, plots = plt.subplots(int(scan.shape[0] / 20) + 1, 4, figsize=(25, 25))
-    for i in range(0, scan.shape[0], 5):
-        plots[int(i / 20), int((i % 20) / 5)].axis('off')
-        plots[int(i / 20), int((i % 20) / 5)].imshow(scan[i], cmap=plt.cm.bone)
-
-
-#plot_ct_scan(ct_scan)
-#plt.show()
 
 
 def get_segmented_lungs(im, plot=False):
@@ -184,25 +117,14 @@ def get_segmented_lungs(im, plot=False):
     #plt.show()
     return im
 
-#get_segmented_lungs(ct_scan[71], True)
-#vivek: no need to have plots, lets pass second
-#argument as False
 
-# ct_scan consists of all the 134 slices, however, ct_scan[71]
-# is only one scan or slice being passed
-moutput=get_segmented_lungs(ct_scan[71], False)
-#plt.imshow(moutput)
-#plt.show()
-
-#the following code is doing for the entire set of 
-#impages for the patient and also converting the numpy
-#matrix as array
 def segment_lung_from_ct_scan(ct_scan):
     return np.asarray([get_segmented_lungs(slice) for slice in ct_scan])
 
+ct_scan = read_ct_scan('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb957e/') # array of pixel_array
 segmented_ct_scan = segment_lung_from_ct_scan(ct_scan)
-
-# vivek: no need to use the following code to plot
-#plot_ct_scan(segmented_ct_scan)
-
 segmented_ct_scan[segmented_ct_scan < 604] = 0 # not sure if we should do this. I got everything black after I did this transformation
+
+minimumPixels=np.array([],dtype=np.int16)
+maximumPixels=np.array([],dtype=np.int16)
+
