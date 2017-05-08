@@ -40,6 +40,13 @@ lung = dicom.read_file('C:/Users/ThinkPad/Documents/00cba091fa4ad62cc3200a657aeb
 
 slice = lung.pixel_array
 
+#Finding unique pixels
+unique=np.unique(lung.pixel_array)
+#>>> unique
+#array([-2000,     0,     1, ...,  2342,  2376,  2412], dtype=int16)
+len(unique)
+#1705
+
 # lung is an object in python. to get all the 
 # available methods and variables in that object, use dir() function
 #>>> dir(lung)
