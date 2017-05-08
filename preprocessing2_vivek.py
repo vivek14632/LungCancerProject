@@ -65,8 +65,8 @@ len(unique)
 
 
 slice[slice == -2000] = 0
-plt.imshow(slice, cmap=plt.cm.gray)
-plt.show()
+#plt.imshow(slice, cmap=plt.cm.gray)
+#plt.show()
 
 def read_ct_scan(folder_name):
         # Read the slices from the dicom file
@@ -94,8 +94,8 @@ def plot_ct_scan(scan):
         plots[int(i / 20), int((i % 20) / 5)].imshow(scan[i], cmap=plt.cm.bone)
 
 
-plot_ct_scan(ct_scan)
-plt.show()
+#plot_ct_scan(ct_scan)
+#plt.show()
 
 
 def get_segmented_lungs(im, plot=False):
@@ -184,41 +184,25 @@ def get_segmented_lungs(im, plot=False):
     #plt.show()
     return im
 
-get_segmented_lungs(ct_scan[71], True)
-plt.show()
+#get_segmented_lungs(ct_scan[71], True)
+#vivek: no need to have plots, lets pass second
+#argument as False
 
+# ct_scan consists of all the 134 slices, however, ct_scan[71]
+# is only one scan or slice being passed
+moutput=get_segmented_lungs(ct_scan[71], False)
+#plt.imshow(moutput)
+#plt.show()
+
+#the following code is doing for the entire set of 
+#impages for the patient and also converting the numpy
+#matrix as array
 def segment_lung_from_ct_scan(ct_scan):
     return np.asarray([get_segmented_lungs(slice) for slice in ct_scan])
 
 segmented_ct_scan = segment_lung_from_ct_scan(ct_scan)
-plot_ct_scan(segmented_ct_scan)
+
+# vivek: no need to use the following code to plot
+#plot_ct_scan(segmented_ct_scan)
 
 segmented_ct_scan[segmented_ct_scan < 604] = 0 # not sure if we should do this. I got everything black after I did this transformation
-plot_ct_scan(segmented_ct_scan)
-
-
-selem = ball(2)
-binary = binary_closing(segmented_ct_scan, selem)
-
-label_scan = label(binary)
-
-areas = [r.area for r in regionprops(label_scan)]
-areas.sort()
-
-for r in regionprops(label_scan): # not sure if we should do this. I got everything black after I did this transformation
-    max_x, max_y, max_z = 0, 0, 0
-    min_x, min_y, min_z = 1000, 1000, 1000
-    
-    for c in r.coords:
-        max_z = max(c[0], max_z)
-        max_y = max(c[1], max_y)
-        max_x = max(c[2], max_x)
-        
-        min_z = min(c[0], min_z)
-        min_y = min(c[1], min_y)
-        min_x = min(c[2], min_x)
-    if (min_z == max_z or min_y == max_y or min_x == max_x or r.area > areas[-3]):
-        for c in r.coords:
-            segmented_ct_scan[c[0], c[1], c[2]] = 0
-    else:
-        index = (max((max_x - min_x), (max_y - min_y), (max_z - min_z))) / (min((max_x - min_x), (max_y - min_y) , (max_z - min_z)))
