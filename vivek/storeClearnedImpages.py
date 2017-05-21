@@ -6,7 +6,7 @@ import os
 from  preprocessing import * 
 from  NumpyMatrix import *
 
-INPUT_FOLDER='/work/v/vivek4/stage1'
+INPUT_FOLDER='/work/v/vivek4/sample_images'
 DESTINATION_FOLDER='/work/v/vivek4/sample_images_clean'
 
 # we need to count number of dicom files to create numpy matrix
