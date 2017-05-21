@@ -123,3 +123,6 @@ def get_segmented_lungs(im, plot=False):
 def segment_lung_from_ct_scan(ct_scan):
     return np.asarray([get_segmented_lungs(slice) for slice in ct_scan])
 
+if __name__ == '__main__':
+	ct_scan=read_ct_scan('/work/v/vivek4/sample_images/00cba091fa4ad62cc3200a657aeb957e/')
+	segment_lung_from_ct_scan(ct_scan)
