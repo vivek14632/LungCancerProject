@@ -10,7 +10,8 @@ import os
 import getpass
 
 if(getpass.getuser()=='vivek4'):
-	dirname='/work/v/vivek4/stage1'
+	#dirname='/work/v/vivek4/stage1'
+	dirname='/work/v/vivek4/sample_images'
 else:
 	# please provide your path to data directory	
 	print('error: specify directory name for the stage 1')
