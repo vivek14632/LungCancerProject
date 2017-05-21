@@ -16,7 +16,7 @@ n_classes = 10
 batch_size = 100
 
 #hieght*width
-# vivek: I guess 784 is coming from 28*28, right?
+# vivek: I guess 784 is coming from 28*28, right?. In out case, the it will be 4095
 
 x = tf.placeholder('float',[None,784])
 
