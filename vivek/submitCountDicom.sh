@@ -5,7 +5,7 @@
 #SBATCH --job-name=CountDicom
 #SBATCH --output=output.%j.r-test
 #SBATCH --time=01:00:00
-#SBATCH --mem=30G
+#SBATCH --mem=10G
 
 #### SLURM 4 processor R test to run for 1 hour.
 

@@ -5,6 +5,10 @@
 # the following code is useful to get the username to identify
 # the computer on which the code is running and use the corresponding
 # path where we have stored the data
+
+import os
+import getpass
+
 if(getpass.getuser()=='vivek4'):
 	dirname='/work/v/vivek4/stage1'
 else:
@@ -16,7 +20,8 @@ count=0
 
 # we need to count number of dicom files to create numpy matrix
 for directories in os.listdir(dirname):
-  files=os.listdir(dirname+'/'+directories+'/')
-  count=count+length(files)
-  
-print('Total number of dcm files='+str(count)  
+	files=os.listdir(dirname+'/'+directories+'/')
+	count=count+len(files)
+
+print('Total number of dcm files='+str(count)) 
+
