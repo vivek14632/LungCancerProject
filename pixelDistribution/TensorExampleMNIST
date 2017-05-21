@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 
+# vivek: what is the format of data in /temp/data? dicom or normal images?
 mnist = input_data.read_data_sets("/temp/data/", one_hot = True)
 
 n_nodes_hl1 = 500
