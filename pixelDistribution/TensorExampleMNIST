@@ -9,11 +9,18 @@ n_nodes_hl1 = 500
 n_nodes_hl2 = 500
 n_nodes_hl3 = 500
 
+# vivek: for our code, i think there will be 2 classes.
 n_classes = 10
+
+# vivek: what is batch_size?
 batch_size = 100
 
 #hieght*width
+# vivek: I guess 784 is coming from 28*28, right?
+
 x = tf.placeholder('float',[None,784])
+
+#placeholder for y variables which is class
 y = tf.placeholder('float')
 
 
