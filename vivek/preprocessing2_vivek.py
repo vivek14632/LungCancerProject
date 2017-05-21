@@ -128,6 +128,7 @@ if(getpass.getuser()=='vivek4'):
 else:
 	print('error: specify directory name for the stage 1')
 
+#to find min and max in different folders
 for directories in os.listdir(dirname):
 
 	ct_scan = read_ct_scan(dirname+'/'+directories+'/')
