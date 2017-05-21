@@ -2,6 +2,7 @@
 
 # Purpose: count minimum and maximum pixel value present in each set of dicom images
 
+import preprocessing
 
 if(getpass.getuser()=='vivek4'):
 	dirname='/work/v/vivek4/stage1'
