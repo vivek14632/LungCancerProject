@@ -1,19 +1,12 @@
 import os
 import numpy as np
 
+from ../labelsreadlabel import *
+from ../vivek/NumpyMatrix import *
+
 my_path = r'fully qualified path containing all npy files'
 os.chdir(my_path)
 
-# function to get label of each patient
-def get_label(x):
-    fp=open(r'path containing lable.csv file')
-    m_data=fp.readlines()[1:]
-    fp.close()
-    for m_row in m_data:
-        m_row=m_row.split('\n')[0]
-        m_row=m_row.split(',')
-        if(m_row[0]==x):
-            return m_row[1]
         
 # function to calculate number of images in each patient file.
 def get_tot_images(file): 
@@ -37,6 +30,7 @@ def main():
         file_name, file_ext = file.split('.')
         labels.append(get_label(file_name)*num)
     y_ndarray = np.asarray(labels)  
+    saveNumpy(y_ndarray, 'sample_images.npy')
     
 if __name__ == '__main__':
     main()
