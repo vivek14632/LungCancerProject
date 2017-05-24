@@ -1,8 +1,8 @@
 import os
 import numpy as np
 
-from ../labelsreadlabel import *
-from ../vivek/NumpyMatrix import *
+from readLabel import *
+from NumpyMatrix import *
 
 my_path = r'fully qualified path containing all npy files'
 os.chdir(my_path)
