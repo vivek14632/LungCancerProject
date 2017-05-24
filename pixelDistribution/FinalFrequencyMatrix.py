@@ -24,7 +24,7 @@ def print_final_matrix (data_dir):
         for each in mat_new:
             
             #go to each slice and print frequency matrix
-            x = slice
+            x = each
             unique, counts = np.unique(x, return_counts=True)
             freq_mat= np.asarray((unique, counts)).T
             
