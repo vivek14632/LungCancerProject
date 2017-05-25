@@ -37,9 +37,6 @@ def print_final_matrix (data_dir):
                     if(i == freq_mat[j][0]):
                         final_matrix[0][i] = freq_mat[j][1]
             
-            #testing
-            for p in range(3604):
-                print final_matrix[p]
-                
+
     #save matrix
     np.save(destination_dir + 'final_matrix',final_matrix)
