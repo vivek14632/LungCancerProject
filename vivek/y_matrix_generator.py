@@ -10,7 +10,10 @@ def get_tot_images(file):
     dim = npy_file.shape
     return(dim[0])
 
-def matrix_generator():
+def matrix_generator(path):
+        
+    # Set it as the current working directory
+    os.chdir(path)
     
     # Get all files in current working directory
     files = os.listdir(os.getcwd())
@@ -29,18 +32,18 @@ def matrix_generator():
         labels.append(get_label(file_name)*num)
     # Combine all the elements of the list into one giant string    
     single_label_string = ''.join(map(str, labels))
-    # Cast the string into a list before assigning it to a numpy array.
+    # Cast the string into a list before assigning it to a numpy array. This results in a numpy 
+    # matrix that has only one column and its rows as the label of each image of each patient.
     np_matrix = np.array(list(single_label_string)) 
+    # Save it as a numpy file
     saveNumpy(np_matrix, 'sample_images.npy')
     return np_matrix         
 
 def main():
     my_path = r'fully qualified path of directory containing all .npy files'
-    # Set it as the current working directory
-    os.chdir(my_path)
-
+    
     # Get the numpy matrix by calling the matrix_generator function        
-    np_matrix = matrix_generator()
+    np_matrix = matrix_generator(my_path)
     print(np_matrix)
     print(np_matrix.shape)
     
