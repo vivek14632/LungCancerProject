@@ -29,7 +29,8 @@ def main():
     for file, num in zip(files, num_imgs):    
         file_name, file_ext = file.split('.')
         labels.append(get_label(file_name)*num)
-    y_ndarray = np.asarray(labels)  
+    single_label_string = ''.join(map(str, labels))
+    y_ndarray = np.array(list(final_label_list))    
     saveNumpy(y_ndarray, 'sample_images.npy')
     
 if __name__ == '__main__':
