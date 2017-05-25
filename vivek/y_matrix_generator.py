@@ -36,6 +36,7 @@ def matrix_generator():
 
 def main():
     my_path = r'fully qualified path of directory containing all .npy files'
+    # Set it as the current working directory
     os.chdir(my_path)
 
     # Get the numpy matrix by calling the matrix_generator function        
