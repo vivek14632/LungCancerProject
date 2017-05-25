@@ -30,7 +30,7 @@ def main():
         file_name, file_ext = file.split('.')
         labels.append(get_label(file_name)*num)
     single_label_string = ''.join(map(str, labels))
-    y_ndarray = np.array(list(final_label_list))    
+    y_ndarray = np.array(list(single_label_string))    
     saveNumpy(y_ndarray, 'sample_images.npy')
     
 if __name__ == '__main__':
