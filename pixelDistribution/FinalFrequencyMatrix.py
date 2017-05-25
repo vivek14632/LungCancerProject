@@ -23,7 +23,6 @@ def print_final_matrix (data_dir):
         mat_new = np.load(data_dir + patient)
         for each in mat_new:
             
-            print each
             #go to each slice and print frequency matrix
             x = each
             unique, counts = np.unique(x, return_counts=True)
