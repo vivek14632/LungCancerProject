@@ -33,8 +33,7 @@ def print_final_matrix (data_dir):
                 
                 #update final matrix numpy array
                 for j in range(len(freq_mat)):
-                    if(i == freq_mat[j][0]):
-                        final_matrix[0][i] = freq_mat[j][1]
+                    final_matrix[0][freq_mat[j][0]] = freq_mat[j][1]
             
 
     #save matrix
