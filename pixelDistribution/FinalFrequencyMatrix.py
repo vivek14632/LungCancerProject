@@ -23,6 +23,7 @@ def print_final_matrix (data_dir):
         mat_new = np.load(data_dir + patient)
         for each in mat_new:
             
+            print each
             #go to each slice and print frequency matrix
             x = each
             unique, counts = np.unique(x, return_counts=True)
@@ -35,7 +36,6 @@ def print_final_matrix (data_dir):
                 for j in range(len(freq_mat)):
                     if(i == freq_mat[j][0]):
                         final_matrix[0][i] = freq_mat[j][1]
-                
-        print final_matrix[each]
+            print final_matrix[each]
     #save matrix
     np.save(destination_dir + 'final_matrix',final_matrix)
