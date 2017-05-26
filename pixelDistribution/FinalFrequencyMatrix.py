@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 
 
-def print_final_matrix (data_dir):
+def print_final_matrix ():
     destination_dir = '/home/ravi/'
     data_dir = '/home/cis1024/sample_images_clean/'
     patients = os.listdir(data_dir)
