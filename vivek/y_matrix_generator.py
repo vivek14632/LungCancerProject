@@ -26,6 +26,7 @@ def matrix_generator(path):
 	# (there is a significant performance gain by doing it this way).
 	for file, num in zip(files, num_imgs):    
 		file_name, file_ext = file.split('.')
+		print(file_name)
 		labels.append(get_label(file_name)*num)
 	# Combine all the elements of the list into one giant string    
 	single_label_string = ''.join(map(str, labels))
@@ -33,7 +34,7 @@ def matrix_generator(path):
 	# matrix that has only one column and its rows as the label of each image of each patient.
 	np_matrix = np.array(list(single_label_string)) 
 	# Save it as a numpy file
-	saveNumpy(np_matrix, 'sample_images.npy')
+	saveNumpy(np_matrix, 'sample_images_Y.npy')
 	return np_matrix         
 def main():
 	my_path=''
@@ -41,7 +42,7 @@ def main():
 			my_path = '/work/v/vivek4/sample_images_clean/'
 			# Get the numpy matrix by calling the matrix_generator function        
 	np_matrix = matrix_generator(my_path)
-	print(np_matrix)
+	#print(np_matrix)
 	print(np_matrix.shape)
 if __name__ == '__main__':
 	main()
