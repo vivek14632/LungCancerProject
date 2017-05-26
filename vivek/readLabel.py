@@ -1,5 +1,13 @@
+import os
+
+
 def get_label(x):
-	fp=open('/home/ravi/stage1_labels.csv')
+	mUser=os.getlogin()
+	if(mUser=='vivek4'):
+		#its a circe cluster
+		fp=open('/work/v/vivek4/stage1_labels.csv')
+	else:
+		fp=open('/home/ravi/stage1_labels.csv')
 	m_data=fp.readlines()[1:]
 	fp.close()
 	for m_row in m_data:
