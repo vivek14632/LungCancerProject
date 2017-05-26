@@ -43,13 +43,14 @@ def matrix_generator(path):
     return np_matrix         
 
 def main():
+	my_path=''
 	if(mUser=='vivek4'):
     		my_path = '/work/v/vivek4/sample_images_clean/'
     
     		# Get the numpy matrix by calling the matrix_generator function        
-    np_matrix = matrix_generator(my_path)
-    print(np_matrix)
-    print(np_matrix.shape)
+    	np_matrix = matrix_generator(my_path)
+    	print(np_matrix)
+    	print(np_matrix.shape)
     
 if __name__ == '__main__':
     main()
