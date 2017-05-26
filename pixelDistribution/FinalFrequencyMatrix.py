@@ -37,3 +37,5 @@ def print_final_matrix ():
 	#print final_matrix
     #save matrix
     np.save(destination_dir + 'final_matrix',final_matrix)
+
+print_final_matrix()
