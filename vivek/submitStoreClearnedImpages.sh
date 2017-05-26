@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=storeClearnedImpages.py
 #SBATCH --output=output.%j.r-test
-#SBATCH --time=05:00:00
+#SBATCH --time=15:00:00
 #SBATCH --mem=10G
 
 #### SLURM 4 processor R test to run for 1 hour.

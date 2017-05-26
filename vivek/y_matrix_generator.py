@@ -1,8 +1,11 @@
 import os
 import numpy as np
 
+
 from readLabel import *
 from NumpyMatrix import * 
+
+mUser=os.getlogin()
         
 # function to calculate number of images in each patient file.
 def get_tot_images(file): 
@@ -40,9 +43,10 @@ def matrix_generator(path):
     return np_matrix         
 
 def main():
-    my_path = r'fully qualified path of directory containing all .npy files'
+	if(mUser=='vivek4'):
+    		my_path = '/work/v/vivek4/sample_images_clean/'
     
-    # Get the numpy matrix by calling the matrix_generator function        
+    		# Get the numpy matrix by calling the matrix_generator function        
     np_matrix = matrix_generator(my_path)
     print(np_matrix)
     print(np_matrix.shape)
