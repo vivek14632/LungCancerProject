@@ -21,7 +21,7 @@ def print_final_matrix (data_dir):
     
     for patient in patients[:]:
         mat_new = np.load(data_dir + patient)
-        for each in len(mat_new):
+        for each in range(len(mat_new)):
             
             #go to each slice and get frequency matrix
             x = mat_new[each]
