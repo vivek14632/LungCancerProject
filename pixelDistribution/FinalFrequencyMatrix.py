@@ -33,7 +33,7 @@ def print_final_matrix ():
             #update final matrix numpy array
             for j in range(len(freq_mat)):
                 final_matrix[finalMatrixRowCounter][freq_mat[j][0]] = freq_mat[j][1]
-				finalMatrixRowCounter=finalMatrixRowCounter+1
+		finalMatrixRowCounter=finalMatrixRowCounter+1
 	#print final_matrix
     #save matrix
     np.save(destination_dir + 'final_matrix',final_matrix)
