@@ -4,6 +4,7 @@ import numpy as np
 
 from readLabel import *
 from NumpyMatrix import * 
+from 
 
 mUser=os.getlogin()
 # function to calculate number of images in each patient file.
@@ -33,15 +34,18 @@ def matrix_generator(path):
 	# Cast the string into a list before assigning it to a numpy array. This results in a numpy 
 	# matrix that has only one column and its rows as the label of each image of each patient.
 	np_matrix = np.array(list(single_label_string)) 
-	# Save it as a numpy file
-	saveNumpy(np_matrix, 'sample_images_Y.npy')
-	return np_matrix         
+	return np_matrix  
+
+def save_numpy(matrix_object, file_name):
+	np.save(matrix_object,file_name)
+	
 def main():
 	my_path=''
 	if(mUser=='vivek4'):
 			my_path = '/work/v/vivek4/sample_images_clean/'
 			# Get the numpy matrix by calling the matrix_generator function        
 	np_matrix = matrix_generator(my_path)
+	saveNumpy(np_matrix, 'sample_images.npy')
 	#print(np_matrix)
 	print(np_matrix.shape)
 if __name__ == '__main__':
