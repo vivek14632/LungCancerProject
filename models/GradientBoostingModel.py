@@ -1,10 +1,9 @@
 import numpy as np
-from sklearn.datasets import make_hastie_10_2
 from sklearn.ensemble import GradientBoostingClassifier
 from data import *
 
-x_dir ="X_MAT_PATH"
-y_dir ="Y_MAT_PATH"
+x_dir =X_MAT_PATH
+y_dir =Y_MAT_PATH
 
 X = np.load(x_dir)
 y = np.load(y_dir)
