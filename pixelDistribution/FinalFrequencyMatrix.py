@@ -21,20 +21,15 @@ def print_final_matrix (data_dir):
     
     for patient in patients[:]:
         mat_new = np.load(data_dir + patient)
-        for each in mat_new:
+        for each in len(mat_new):
             
-            #go to each slice and print frequency matrix
-            x = each
+            #go to each slice and get frequency matrix
+            x = mat_new[each]
             unique, counts = np.unique(x, return_counts=True)
-            freq_mat= np.asarray((unique, counts)).T
-            
-            #for each freq matrix
-            for i in range(4096):
-                
-                #update final matrix numpy array
-                for j in range(len(freq_mat)):
-                    final_matrix[0][freq_mat[j][0]] = freq_mat[j][1]
-            
-
+            freq_mat= np.asarray((unique, counts)).T    
+            #update final matrix numpy array
+            for j in range(len(freq_mat)):
+                final_matrix[each][freq_mat[j][0]] = freq_mat[j][1]
+    
     #save matrix
     np.save(destination_dir + 'final_matrix',final_matrix)
