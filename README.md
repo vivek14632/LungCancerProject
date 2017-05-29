@@ -11,6 +11,11 @@ It will create a nohup.out file with logs
 
 ps -ef|grep <Linux_username>
 
+# Image preprocessing
+
+Provide the path to the raw files folder and the folder to store the images and run the following file.
+https://github.com/vivek14632/LungCancerProject/blob/master/vivek/storeClearnedImpages.py
+
 # X matrix
 
 /home/ravi/final_matrix.npy
