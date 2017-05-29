@@ -6,6 +6,9 @@ if(user=='cis1024'):
 elif (user=='vivek4'):
   X_MAT_PATH='/work/v/vivek4/final_matrix.npy'
   Y_MAT_PATH='/work/v/vivek4/sample_images_Y.npy'
+  
+  # Following is the processed image folder on circe
+  STAGE1_CLEAN_BAK='/work/v/vivek4/stage1_clean_bak'
 elif (user=='deepak'):
   X_MAT_PATH='/work/v/vivek4/final_matrix.npy'
   Y_MAT_PATH='/work/v/vivek4/sample_images_Y.npy'
