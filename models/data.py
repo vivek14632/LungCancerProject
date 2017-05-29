@@ -1,3 +1,4 @@
+import os
 user= os.getlogin()
 if(user=='cis1024'):
   X_MAT_PATH='/home/ravi/final_matrix.npy'
