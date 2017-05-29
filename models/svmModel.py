@@ -9,8 +9,7 @@ from train_test_split import *
 X = np.load(X_MAT_PATH)
 Y = np.load(Y_MAT_PATH)
 
-
-print("X matrix with shape {} has been loaded".format(X.shape))\\
+print("X matrix with shape {} has been loaded".format(X.shape))
 print("Y matrix with shape {} has been loaded".format(Y.shape))
 
 # Converting dtype to int32
@@ -24,12 +23,19 @@ print('Train and test data created for X matrix created with dimensions {} and {
 train_y,test_y = get_train_test_data(Y)
 print('Train and test data created for Y matrix created with dimensions {} and {} respectively'.format(train_y.shape,test_y.shape))
 
+def run_svm_model():
 # Declare a list of all possible kernels in svm.SVC
-kernels = ['linear', 'poly', 'rbf', 'sigmoid', 'precomputed']
-for kernel in kernels:
-	print('Running {} kernel'.format(kernel))
-    clf = svm.SVC(kernel=kernel)
-    clf.fit(train_x,train_y)
-    pred = clf.predict(test_x)
-    cm = confusion_matrix(test_y, pred)
-    print('Confusion matrix for {} is \n {}'.format(kernel,cm))
+    kernels = ['linear', 'poly', 'rbf', 'sigmoid', 'precomputed']
+    for kernel in kernels:
+        print('Running {} kernel'.format(kernel))
+        clf = svm.SVC(kernel=kernel)
+        clf.fit(train_x,train_y)
+        pred = clf.predict(test_x)
+        cm = confusion_matrix(test_y, pred)
+        print('Confusion matrix for {} is \n {}'.format(kernel,cm))
+
+def main():
+	run_svm_models()
+
+if __name__ == '__main__':
+	main()
