@@ -8,7 +8,7 @@ y_dir =Y_MAT_PATH
 X = np.load(x_dir)
 y = np.load(y_dir)
 
-
+#@ vivek: please remove the hard coded values
 X_train, X_test = X[:2000], X[2000:]
 y_train, y_test = y[:2000], y[2000:]
 
