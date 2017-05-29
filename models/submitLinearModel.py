@@ -6,4 +6,4 @@
 module purge
 module add apps/python/3.5.1
 
-python imageProcessing.py
+python linearModel.py
