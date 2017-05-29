@@ -10,6 +10,8 @@ X = np.load(x_dir)
 y = np.load(y_dir)
 
 clf = MLPClassifier(solver='lbfgs', alpha=0.5,hidden_layer_sizes=(5, 2), random_state=1)
+
+# comment: @ vivek: can we remove the hard coded values? Lets use 80 20 rule
 clf.fit(X[:2000], y[:2000])                         
 
 
