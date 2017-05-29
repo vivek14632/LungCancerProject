@@ -24,6 +24,14 @@ https://github.com/vivek14632/LungCancerProject/blob/master/vivek/storeClearnedI
 
 /home/cis1024/sample_images_Y.npy
 
+# X matrix generator Location
+
+LungCancerProject/pixelDistribution/FinalFrequencyMatrix.py
+
+# Y matrix generator Location
+
+LungCancerProject/vivek/y_matrix_generator.py
+
 # How to Run Y-Matrix Generator
 
 python y_matrix_generator.py <arg1> <arg2> <arg2>
