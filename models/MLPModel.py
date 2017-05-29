@@ -14,9 +14,10 @@ clf = MLPClassifier(solver='lbfgs', alpha=0.5,hidden_layer_sizes=(5, 2), random_
 # comment: @ vivek: can we remove the hard coded values? Lets use 80 20 rule
 clf.fit(X[:2000], y[:2000])                         
 
-
+# comment: @vivek: please remove the hard coded values
 prediction = clf.predict(X[2000:3604])
 
+#comment : @vivek: please remove the hard coded values
 cm = confusion_matrix(y[2000:3604],prediction)
 
 #accuracy 64.4%
