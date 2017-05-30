@@ -12,5 +12,5 @@
 module purge
 module add apps/python/3.5.1
 
-python y_matrix_generator.py
+python y_matrix_generator.py /work/v/vivek4/stage1_clean_bak /work/v/vivek4/stage1_clean_bak_Y_matrix 
 
