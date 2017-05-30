@@ -1,11 +1,22 @@
 # author: vivek
 # Naive Bayes classification
 
+import timeit
+from datetime import datetime
+
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix
 import timeit
 from train_test_split import *
+from data import *
+from sklearn.model_selection import cross_val_score
+
+def reshape_label_matrix(matrix_object):
+    c, r = matrix_object.shape
+    matrix_object = matrix_object.reshape(c,)
+    return matrix_object
+
 
 # load the data
 X = np.load(X_MAT_PATH)
@@ -57,7 +68,8 @@ def run_nb():
 	pred = clf.predict(test_x)
 	# Create confusion matrix
 	cm = confusion_matrix(test_y, pred)
-	print('Confusion matrix for {} is \n {}'.format(kernel,cm))
+	print('Confusion matrix  {}'.format(cm))
+	print(str((cm[0,0] +cm[1,1])/float((cm[0,1]+cm[1,0]))))
 
 	# Get the stop time
 	stop = timeit.default_timer()
@@ -68,13 +80,14 @@ def run_nb():
 def main():
 	run_nb()
 
-
+	#global train_y
+	
 	# Run cross-validation
-	train_y = reshape_label_matrix(train_y)
+	#train_y = reshape_label_matrix(train_y)
 	# Create a list of number of folds to be run
-	folds = [5,10,15,20]
-	for k in folds:
-		nb_cv(train_x,train_y,k)
+	#folds = [5,10,15,20]
+	#for k in folds:
+	#	nb_cv(train_x,train_y,k)
 if __name__ == '__main__':
 	main()
 
