@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=python
-#SBATCH --time=01:00:00
+#SBATCH --time=05:00:00
 #SBATCH --ntasks=1
 
 module purge
