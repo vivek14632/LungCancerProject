@@ -7,10 +7,10 @@ from NumpyMatrix import *
 
 # function to calculate number of images in each patient file.
 def get_tot_images(file):
-	print("Reading images from {}".format(file))
+	print("Reading images from {0}".format(file))
 	npy_file = np.load(file)
 	dim = npy_file.shape
-	print("{} contains {} images".format(file, dim))
+	print("{0} contains {1} images".format(file, dim))
 	return(dim[0])
 def matrix_generator(path):
 	# Set it as the current working directory
@@ -27,7 +27,7 @@ def matrix_generator(path):
 	# (there is a significant performance gain by doing it this way).
 	for file, num in zip(files, num_imgs):    
 		file_name, file_ext = file.split('.')
-		print("Reading label for {}".format(file_name))
+		print("Reading label for {0}".format(file_name))
 		labels.append(get_label(file_name)*num)
 	# Combine all the elements of the list into one giant string    
 	single_label_string = ''.join(map(str, labels))
@@ -50,7 +50,7 @@ def main():
 	finalpath = sys.argv[2]
 	# arg3 -> Fully qualified path of file containing the image labels
 	#labels_path = sys.argv[3]
-	print("Reading files from {}".format(filepath))
+	print("Reading files from {0}".format(filepath))
 	# Get the numpy matrix by calling the matrix_generator function        
 	np_matrix = matrix_generator(filepath)
 	filename = 'sample_images.npy'
