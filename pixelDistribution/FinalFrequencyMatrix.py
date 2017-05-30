@@ -3,10 +3,14 @@ import os
 import pandas as pd
 import numpy as np
 
-
+user=os.getlogin()
 def print_final_matrix():
-	destination_dir = '/work/v/vivek4/stage1_clean_bak_X_matrix/'
-	data_dir = '/work/v/vivek4/stage1_clean_bak/'
+	if(user=='vivek4'):
+		destination_dir = '/work/v/vivek4/stage1_clean_bak_X_matrix/'
+		data_dir = '/work/v/vivek4/stage1_clean_bak/'
+	else:
+		print('Log: Please specify your path')
+
 	patients = os.listdir(data_dir)
 
 	#count total number of slices
