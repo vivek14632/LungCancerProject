@@ -16,6 +16,9 @@ def print_final_matrix():
 	#count total number of slices
 	total_slices = 0
 	for patient in patients[:]:
+		print(patient)
+		print('total slice='+str(total_slices))
+		
 		mat = np.load(data_dir + patient)
 		total_slices += len(mat)
 
