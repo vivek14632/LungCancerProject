@@ -6,9 +6,7 @@ from load_data import *
 from train_test_split import *
 from load_data import *
 from svmModel import *
-
-import timeit
-from datetime import datetime
+from timer import *
 
 def run_knn():
 	X,Y = load_data()
@@ -24,22 +22,16 @@ def run_knn():
 	train_y = reshape_label_matrix(train_y)
 	
 	# Get the start time
-	start = timeit.default_timer()
-	start_time = datetime.now()
-	print('Execution started at {}'.format(start_time))
+	get_start_time()
 	
-	knn=neighbors.KNeighborsClassifier(n_neighbors=3)
+	knn=neighbors.KNeighborsClassifier(n_neighbors=2)
 	knn.fit(train_x,train_y)
 	pred = knn.predict(test_x)
 	cm = confusion_matrix(test_y, pred)
 	print('Confusion matrix : \n {}'.format(cm))
 	
 	# Get the stop time
-	stop = timeit.default_timer()
-	stop_time = datetime.now()
-	print('Execution ended at {}'.format(stop_time))
-	print('Total Execution time : {}'.format(stop - start))
-	print('-----------------------------------------------')
+	get_stop_time()
 	
 def main():
 	# Run knn model
