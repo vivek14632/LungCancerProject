@@ -7,5 +7,5 @@ def get_train_test_data(np_matrix):
 	df = pd.DataFrame(np_matrix)
 	train, test = train_test_split(df, test_size = 0.2, random_state=seed)
 	train = np.asarray(train)
-  	test = np.asarray(test)
+	test = np.asarray(test)
 	return train,test
