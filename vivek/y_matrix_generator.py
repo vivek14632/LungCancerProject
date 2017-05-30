@@ -28,6 +28,7 @@ def matrix_generator(path):
 	for file, num in zip(files, num_imgs):    
 		file_name, file_ext = file.split('.')
 		print("Reading label for {0}".format(file_name))
+		print('label='+str(get_label(file_name)))
 		labels.append(get_label(file_name)*num)
 	# Combine all the elements of the list into one giant string    
 	single_label_string = ''.join(map(str, labels))

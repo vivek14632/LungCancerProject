@@ -4,9 +4,9 @@ import os
 def get_label(x):
 	mUser=os.getlogin()
 	# root is the user at the CIRCE
-	if(mUser=='root'):
+	if(mUser=='vivek4'):
 		#its a circe cluster
-		fp=open('/work/v/vivek4/stage1_labels.csv')
+		fp=open('/work/v/vivek4/stage1_total_labels.csv')
 	else:
 		fp=open('/home/ravi/stage1_labels.csv')
 	m_data=fp.readlines()[1:]
