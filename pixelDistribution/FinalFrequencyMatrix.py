@@ -5,8 +5,8 @@ import numpy as np
 
 
 def print_final_matrix():
-	destination_dir = '/home/ravi/'
-	data_dir = '/home/cis1024/sample_images_clean/'
+	destination_dir = '/work/v/vivek4/stage1_clean_bak_X_matrix/'
+	data_dir = '/work/v/vivek4/stage1_clean_bak/'
 	patients = os.listdir(data_dir)
 
 	#count total number of slices
