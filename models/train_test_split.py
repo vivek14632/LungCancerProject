@@ -1,6 +1,7 @@
 import pandas as pd
 import sklearn
 from sklearn.model_selection import train_test_split
+import numpy as np
 
 def get_train_test_data(np_matrix):
 	seed=200
