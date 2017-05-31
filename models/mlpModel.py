@@ -8,7 +8,7 @@ from load_data import *
 from svmModel import *
 from timer import *
 
-def run_gradBoost():
+def run_mlp():
     X,Y = load_data()
 
     # Create train and test data
@@ -35,7 +35,7 @@ def run_gradBoost():
     
 def main():
     # Run knn model
-    run_gradBoost()
+    run_mlp()
     
 if __name__ == '__main__':
     main()
