@@ -34,6 +34,9 @@ elif (user=='vivek'):
 elif (user=='deepak'):
 	X_MAT_PATH='/work/v/vivek4/final_matrix.npy'
 	Y_MAT_PATH='/work/v/vivek4/sample_images_Y.npy'
+elif (user=='ravi'):
+	X_MAT_PATH='/work/v/vivek4/final_matrix.npy'
+	Y_MAT_PATH='/work/v/vivek4/sample_images_Y.npy'
 elif (user=='rhomi'):
 	X_MAT_PATH='D:\Learning\Cancer_Project\Data\Final X And Y Matrices\final_matrix.npy'
 	Y_MAT_PATH='D:\Learning\Cancer_Project\Data\Final X And Y Matrices\sample_images_Y.npy' 
