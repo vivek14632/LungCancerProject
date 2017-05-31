@@ -4,7 +4,7 @@ from sklearn.metrics import confusion_matrix
 
 from load_data import *
 from train_test_split import *
-from load_data import *
+from data import *
 from svmModel import *
 from timer import *
 
