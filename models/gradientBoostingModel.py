@@ -1,4 +1,4 @@
-from sklearn import svm
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn import neighbors
 from sklearn.metrics import confusion_matrix
 
