@@ -35,7 +35,7 @@ def run_gradBoost():
     
 def main():
     # Run knn model
-    run_knn()
+    run_gradBoost()
     
 if __name__ == '__main__':
     main()
