@@ -1,6 +1,6 @@
-from sklearn import svm
 from sklearn import neighbors
 from sklearn.metrics import confusion_matrix
+from sklearn.neural_network import MLPClassifier
 
 from load_data import *
 from train_test_split import *
