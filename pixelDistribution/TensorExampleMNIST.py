@@ -57,7 +57,7 @@ def train_nueral_network(x):
 	prediction = nueral_network_model(x)
 
 
-	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(prediction,y))
+	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction,labels=y))
 	optimizer = tf.train.AdamOptimizer().minimize(cost)
 
 	hm_epochs = 10
