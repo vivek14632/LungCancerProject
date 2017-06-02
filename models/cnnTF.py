@@ -16,7 +16,7 @@ keep_prob = tf.placeholder(tf.float32)
 
 n_classes = 2
 batch_size = 100
-
+#Batch processing - similar to nueral network
 test_counter=0
 def next_batch(batch_size):
 	global test_counter
@@ -29,13 +29,16 @@ def next_batch(batch_size):
 x = tf.placeholder('float',[None,X.shape[1]])
 y = tf.placeholder('float')
 
-def conv2d(x, W):
+def conv2d(x, w):
   return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 def maxpool2d(x):
   return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
 def cnn(x):
+	
+# weights and biases are defined here. We have four convolution and four pool layers with relu activation.
+# this can be further fine tuned by imcreasing the layers or changing the activation function.
     weights = {'w_conv1':tf.Variable(tf.random_normal([5,5,1,32])),
                'w_conv2':tf.Variable(tf.random_normal([5,5,32,64])),
                'w_conv3':tf.Variable(tf.random_normal([5,5,64,128])),
@@ -64,17 +67,19 @@ def cnn(x):
     conv4 = tf.nn.relu(conv2d(conv3, weights['w_conv4']) + biases['b_conv4'])
     conv4 = maxpool2d(conv4)
 
+#after pooling / feature reduction , final image size would be 32*32 with 256 features
     fc = tf.reshape(conv2,[-1, 32*32*256])
-
+#relu activation is used here. Refer tensor flow documentation to change this function.
     fc = tf.nn.relu(tf.matmul(fc, weights['w_fc'])+biases['b_fc'])
-    fc = tf.nn.dropout(fc, keep_rate)
+    
     fc = tf.nn.dropout(fc, keep_rate)
     
     output = tf.matmul(fc, weights['out'])+biases['out']
 
     return output
 
-def train_nueral_network(x):
+#to train the network : similar to nueral network
+def train_convolution_network(x):
 	
 	prediction = convolution_nueral_network	(x)
 
@@ -101,4 +106,4 @@ def train_nueral_network(x):
 		print('Accuracy:', accuracy.eval({x:test_x, y:categorical(test_y[:,0],drop=True)}))
 
 
-train_nueral_network(x)
+train_convolution_network(x)
