@@ -3,6 +3,8 @@ https://storage.googleapis.com/amy-jo/talks/tf-workshop.pdf
 
 https://home.zhaw.ch/~dueo/bbs/files/TF_Introduction.pdf
 
+Basic CNN Knowledge: https://courses.cognitiveclass.ai/courses/course-v1:BigDataUniversity+ML0115EN+2016/courseware/407a9f86565c44189740699636b4fb85/980c8dd6f14744a88c4731e54bad4b5b/
+
 CNN: http://cs231n.github.io/
 
 Best PPT to understand MNIST: https://scottylabs.org/crashcourse/assets/tensorflow/deep-learning-with-tensorflow.pdf
@@ -13,6 +15,8 @@ http://web.donga.ac.kr/yjko/usefulthings/TensorFlow-Basic-Concept_Ko.pdf
 
 http://disi.unitn.it/~passerini/teaching/2015-2016/MachineLearning/slides/deep_network_lab/tensorflow.pdf
 
+Paper on Dropout in Deep learning:
+https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf
 
 # Books
 
@@ -28,6 +32,9 @@ https://arxiv.org/pdf/1610.01178.pdf
 Tensorflow white paper by google: http://download.tensorflow.org/paper/whitepaper2015.pdf
 
 
+# Tensorflow API:
+http://tflearn.org/
 
+We can save our model, i.e. the weights and biases of the final generation in this API and use it later for predicting new data, which I found interesting.
 
 
