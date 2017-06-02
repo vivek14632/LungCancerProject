@@ -7,6 +7,10 @@ def get_label(x):
 	if(mUser=='vivek4'):
 		#its a circe cluster
 		fp=open('/work/v/vivek4/stage1_total_labels.csv')
+	elif(mUser=='vivek'):
+		fp=open('/home/vivek/stage1_total_labels.csv')
+	elif(mUser=='root'):
+		fp=open('/work/v/vivek4/stage1_total_labels.csv')
 	else:
 		fp=open('/home/ravi/stage1_labels.csv')
 	m_data=fp.readlines()[1:]
