@@ -1,28 +1,55 @@
+#import tensorflow
 import tensorflow as tf
+
+#import numpy
 import numpy as np
+
+# vivek: why are you using mnist sample data? Should we just commen this code?
 from tensorflow.examples.tutorials.mnist import input_data
 
+# This will transform categorical variables to dummy variables
 from scikits.statsmodels.tools import categorical
 
+# To get dicom data
 from data import *
 from load_data import *
+
+# split data into train test
 from train_test_split import *
+
+#load data
 X,Y = load_data()
+
+#split data into train test
 train_x,test_x = get_train_test_data(X)
 train_y,test_y = get_train_test_data(Y)
 
+# vivek: I guess the following is the learning rate?
 keep_rate = 0.8
+
+# place holder for probability? what is the use of this probability?
 keep_prob = tf.placeholder(tf.float32)
 
+# number of classes
 n_classes = 2
+
+# this the the data which we give each time for taining.
+# vivek: can we vary this data and see if we get better accuracy?
 batch_size = 100
+
 #Batch processing - similar to nueral network
+
+# vivek: what is the use of this test counter? I guess it is to
+# keep track of global batch size
 test_counter=0
+
 def next_batch(batch_size):
 	global test_counter
 	batch_counter=test_counter
 	#global test_counter
 	test_counter=(batch_counter+1)
+	
+	# vivek: you should verify the outcome of the following code
 	return train_x[batch_counter:(batch_counter+batch_size),:], categorical(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True)
 
 
