@@ -44,7 +44,7 @@ def print_final_matrix():
 				final_matrix[finalMatrixRowCounter][freq_mat[j][0]] = freq_mat[j][1]
 			#Adding new column with patient label
 			#updating the counter
-			final_matrix[finalMatrixRowCounter][4097] = patient	
+			final_matrix[finalMatrixRowCounter][4096] = patient	
 			finalMatrixRowCounter=finalMatrixRowCounter+1
 	#print final_matrix
 	#save matrix
