@@ -25,7 +25,7 @@ def print_final_matrix():
 		total_slices += len(mat)
 
 	#define final freq matrix
-	final_matrix = np.zeros(total_slices*4096, dtype = int).reshape(total_slices,4096)
+	final_matrix = np.zeros(total_slices*4097, dtype = int).reshape(total_slices,4097)
 	#print final_matrix
 
 	#Lets keep track of row in the final matrix
@@ -42,7 +42,9 @@ def print_final_matrix():
 			#update final matrix numpy array
 			for j in range(len(freq_mat)):
 				final_matrix[finalMatrixRowCounter][freq_mat[j][0]] = freq_mat[j][1]
-				
+			#Adding new column with patient label
+			#updating the counter
+			final_matrix[finalMatrixRowCounter][4097] = patient	
 			finalMatrixRowCounter=finalMatrixRowCounter+1
 	#print final_matrix
 	#save matrix
