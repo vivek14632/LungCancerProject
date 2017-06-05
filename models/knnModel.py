@@ -9,7 +9,10 @@ from svmModel import *
 from timer import *
 
 def run_knn():
-	X,Y = load_data()
+	data = load_data()
+	
+	X = data[0]
+	Y= data[1]
 
 	# Create train and test data
 	train_x,test_x = get_train_test_data(X)
