@@ -182,7 +182,7 @@ def get_accuracy(actual, predicted):
         misclassified = np.array(indices)
         print('Number of images for patient {} : {}'.format(patient,df_temp.shape[0]))
         print('Number of images misclassified : {}'.format(misclassified.shape[0]))
-        print('Percentage of images misclassified : {}'.format(misclassified.shape[0]/df_temp.shape[0]))	
+        print('Percentage of images misclassified : {:.1%}'.format(misclassified.shape[0]/df_temp.shape[0]))	
 
 def print_line():
 	print('----------------------------------------------------------------')
