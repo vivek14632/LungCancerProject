@@ -10,16 +10,18 @@ def convert_df_to_np(df):
 
 # Get train, test data at the patient level
 def get_patient_train_test(file_path):
-    os.chdir(file_path)
-    files = os.listdir(os.getcwd())
-    patient_list = []
-    for file in files:
-        file_name, file_ext = file.split('.')
-        patient_list.append(file_name)
-    patients = np.array(patient_list)
-    patients_train, patients_test = split_numpy(patients)
-    train_x, test_x, train_y, test_y = get_image_train_test(patients_train, patients_test)
-    return train_x, test_x, train_y, test_y
+	os.chdir(file_path)
+	files = os.listdir(os.getcwd())
+	patient_list = []
+	for file in files:
+		file_name, file_ext = file.split('.')
+		patient_list.append(file_name)
+	patients = np.array(patient_list)
+	patients_train, patients_test = get_train_test_data(patients)
+	print('Number of patients taken as train data : {}'.format(patients_train.shape[0]))
+	print('Number of patients taken as test data : {}'.format(patients_test.shape[0]))
+	train_x, test_x, train_y, test_y = get_image_train_test(patients_train, patients_test)
+	return train_x, test_x, train_y, test_y
 	
 # Split any numpy into train test sets
 def get_train_test_data(np_matrix):
