@@ -204,13 +204,13 @@ def main():
     print_line()
     # Run all models
     # Running svm_rbf
-    print('Running svm_rbf')
-    svm_rbf(train_x, test_x, train_y, test_y)
+    #print('Running svm_rbf')
+    #svm_rbf(train_x, test_x, train_y, test_y)
 
     print_line()
     # Running svm_linear
-    print('Running svm_linear')
-    svm_linear(train_x, test_x, train_y, test_y)
+    #print('Running svm_linear')
+    #svm_linear(train_x, test_x, train_y, test_y)
 
     print_line()
     # Running knn
