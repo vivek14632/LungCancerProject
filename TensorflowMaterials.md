@@ -18,6 +18,10 @@ http://disi.unitn.it/~passerini/teaching/2015-2016/MachineLearning/slides/deep_n
 Paper on Dropout in Deep learning:
 https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf
 
+# CNN materials
+
+http://cs231n.github.io/convolutional-networks/
+
 # Books
 
 http://www.ic.unicamp.br/~wainer/cursos/1s2017/ml/Hands_On_Machine_Learning_with_Scikit_Learn_and_TensorFlow.pdf
