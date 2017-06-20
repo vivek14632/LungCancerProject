@@ -10,3 +10,8 @@ from scipy import misc
 import glob
 image=misc.imread('C:/Users/vivek4/Desktop/top.png')
 image
+
+
+import matplotlib.pyplot as plt
+plt.imshow(image)
+plt.show()
