@@ -108,7 +108,7 @@ def cnn(x):
 #to train the network : similar to nueral network
 def train_convolution_network(x):
 	
-	prediction = convolution_nueral_network	(x)
+	prediction = cnn(x)
 
 
 	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction,labels=y))
