@@ -18,7 +18,7 @@ from load_data import *
 from train_test_split import *
 
 #load data
-X,Y = load_data()
+X,Y, Y_PATIENT = load_data()
 
 #split data into train test
 train_x,test_x = get_train_test_data(X)
