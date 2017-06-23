@@ -57,7 +57,7 @@ x = tf.placeholder('float',[None,X.shape[1]])
 y = tf.placeholder('float')
 
 def conv2d(x, w):
-  return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
+  return tf.nn.conv2d(x, w, strides=[1, 1, 1, 1], padding='SAME')
 
 def maxpool2d(x):
   return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
