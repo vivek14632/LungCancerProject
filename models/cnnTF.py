@@ -8,7 +8,7 @@ import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 
 # This will transform categorical variables to dummy variables
-#from scikits.statsmodels.tools import categorical
+from scikits.statsmodels.tools import categorical
 
 # To get dicom data
 from data import *
@@ -51,7 +51,7 @@ def next_batch(batch_size):
 	test_counter=(batch_counter+1)
 	
 	# vivek: you should verify the outcome of the following code
-	return train_x[batch_counter:(batch_counter+batch_size),:],(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True) #categorical
+	return train_x[batch_counter:(batch_counter+batch_size),:],categorical(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True) #categorical
 
 
 x = tf.placeholder('float',[None,X.shape[0]])
@@ -131,7 +131,7 @@ def train_convolution_network(x):
 
 		correct = tf.equal(tf.argmax(prediction,1), tf.argmax(y,1))
 		accuracy = tf.reduce_mean(tf.cast(correct,'float'))
-		print('Accuracy:', accuracy.eval({x:test_x, y:(test_y[:,0],drop=True)})) #categorical
+		print('Accuracy:', accuracy.eval({x:test_x, y:categorical(test_y[:,0],drop=True)})) #categorical
 
 
 train_convolution_network(x)
