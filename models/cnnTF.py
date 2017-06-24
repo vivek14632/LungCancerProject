@@ -131,7 +131,7 @@ def train_convolution_network(x):
 
 		correct = tf.equal(tf.argmax(prediction,1), tf.argmax(y,1))
 		accuracy = tf.reduce_mean(tf.cast(correct,'float'))
-		print('Accuracy:', accuracy.eval({x:test_x, y:categorical(test_y[:,0],drop=True)}))
+		print('Accuracy:', accuracy.eval({x:test_x, y:(test_y[:,0],drop=True)})) #categorical
 
 
 train_convolution_network(x)
