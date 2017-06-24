@@ -51,7 +51,7 @@ def next_batch(batch_size):
 	test_counter=(batch_counter+1)
 	
 	# vivek: you should verify the outcome of the following code
-	return train_x[batch_counter:(batch_counter+batch_size),:], categorical(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True)
+	return train_x[batch_counter:(batch_counter+batch_size),:],(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True) #categorical
 
 
 x = tf.placeholder('float',[None,X.shape[0]])
