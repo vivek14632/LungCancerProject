@@ -18,7 +18,8 @@ from load_data import *
 from train_test_split import *
 
 #load data
-X,Y, Y_PATIENT = load_data()
+X = np.load('/home/ravi/flat_sample.npy')
+Y= np.load('/home/cis1024/sample_images_Y.npy')
 
 #split data into train test
 train_x,test_x = get_train_test_data(X)
