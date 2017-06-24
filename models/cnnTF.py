@@ -54,7 +54,7 @@ def next_batch(batch_size):
 	return train_x[batch_counter:(batch_counter+batch_size),:], categorical(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True)
 
 
-x = tf.placeholder('float',[None,X.shape[1]])
+x = tf.placeholder('float',[None,X.shape[0]])
 y = tf.placeholder('float')
 
 def conv2d(x, w):
