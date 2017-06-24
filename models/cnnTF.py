@@ -8,7 +8,7 @@ import numpy as np
 from tensorflow.examples.tutorials.mnist import input_data
 
 # This will transform categorical variables to dummy variables
-from scikits.statsmodels.tools import categorical
+#from scikits.statsmodels.tools import categorical
 
 # To get dicom data
 from data import *
