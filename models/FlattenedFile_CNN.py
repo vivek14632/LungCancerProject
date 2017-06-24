@@ -21,8 +21,9 @@ def def_main_matrix(data_dir):
     
    
 
-def create_flat_mat(matrix):
+def create_flat_mat(matrix,data_dir):
     new_counter = 0
+    patients = os.listdir(data_dir)
     for patient in patients[:]:
         patient = np.load(data_dir + patient)
         
