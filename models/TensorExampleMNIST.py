@@ -7,7 +7,7 @@ from scikits.statsmodels.tools import categorical
 from data import *
 from load_data import *
 from train_test_split import *
-X,Y = load_data()
+X,Y, y_patient = load_data()
 train_x,test_x = get_train_test_data(X)
 train_y,test_y = get_train_test_data(Y)
 

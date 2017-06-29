@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 
 # vivek: why are you using mnist sample data? Should we just commen this code?
-from tensorflow.examples.tutorials.mnist import input_data
+#from tensorflow.examples.tutorials.mnist import input_data
 
 # This will transform categorical variables to dummy variables
 from scikits.statsmodels.tools import categorical
@@ -18,8 +18,9 @@ from load_data import *
 from train_test_split import *
 
 #load data
-X = np.load('/home/ravi/flat_sample.npy')
-Y= np.load('/home/ravi/sample_images_Y.npy')
+X = np.load('/home/vivek/flat_sample.npy')
+X=np.vstack(X)
+Y= np.load('/home/vivek/sample_images_Y.npy')
 
 #split data into train test
 train_x,test_x = get_train_test_data(X)
@@ -54,7 +55,7 @@ def next_batch(batch_size):
 	return train_x[batch_counter:(batch_counter+batch_size),:],categorical(train_y[batch_counter:(batch_counter+batch_size)][:,0],drop=True) #categorical
 
 
-x = tf.placeholder('float',[None,X.shape[0]])
+x = tf.placeholder('float',[None,X.shape[1]])
 y = tf.placeholder('float')
 
 def conv2d(x, w):
