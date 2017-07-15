@@ -16,7 +16,7 @@ def def_main_matrix(data_dir):
         total_slices += len(mat)
     
     #define new matrix
-    new_mat = new = np.ndarray(total_slices*1, dtype = object)
+    new_mat = np.ndarray(total_slices*1, dtype = object)
     return new_mat
     
    
